@@ -40,14 +40,24 @@
 <button></button>
 <script>
   const divs = document.querySelectorAll('div');
+  const button = document.querySelectorAll('button');
 
   function logText(e) {
-    e.stopPropogation(); // stop bubbling!!
+    console.log(this.classList.value);
+    // e.stopPropogation(); // stop bubbling!!
+    // console.log(this);
   }
 
   divs.forEach(div => div.addEventListener('click', logText, {
-    capture: false;
+    capture: false,
+    once: true
   }));
+
+  button.addEventListener('click', () => {
+    console.log('Click!!!!');
+  }, {
+    once: true
+  });
 </script>
 </body>
 </html>
